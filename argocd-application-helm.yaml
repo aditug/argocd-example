@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+  namespace: argocd
+spec:
+  destination:
+    namespace: my-app-ns
+    server: https://kubernetes.default.svc
+  source:
+    #chart when you want to deploy helm from helm repo
+    path: helm
+    repoURL: https://github.com/aditug/argocd-example
+    targetRevision: main
+  sources: []
+  project: default
