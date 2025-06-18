@@ -4,7 +4,7 @@
 
 - desired state = what is in git 
 - actual state = cluster
----
+
 Sync = make desired state into the actual state
 
 Refresh = compare actual with desired
@@ -24,7 +24,7 @@ install cli: ```brew install argocd```
 login: ```argocd login localhost:8080```
 pass is from secret argocd-initial-admin-secret
 
-```argocd app create my-app --repo https://github.com/aditug/argocd-example --path k8s-yaml --dest-server https://kubernetes.default.svc --dest-namespace my-app-ns```
+```argocd app create myapp --repo https://github.com/aditug/argocd-example --path k8s-yaml --dest-server https://kubernetes.default.svc --dest-namespace myapp-ns```
 
 Ex: 
 - https://github.com/argoproj/argocd-example-apps

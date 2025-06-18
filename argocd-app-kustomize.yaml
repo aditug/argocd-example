@@ -1,16 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp
+  name: myapp-kustomize
   namespace: argocd
 spec:
   destination:
-    namespace: my-app-ns
+    namespace: myapp-kustomize-ns
     server: https://kubernetes.default.svc
   project: default
   source:
-  # path can be used for helm chart as well
-    path: k8s-yaml
+    path: kustomize
     repoURL: https://github.com/aditug/argocd-example
     targetRevision: main
-  sources: []
+    kustomize:
+      namePrefix: staging-
+      commonLabels:
+        app: demo
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true

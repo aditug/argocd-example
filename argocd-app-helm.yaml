@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: my-app
+  name: myapp-helm
   namespace: argocd
 spec:
   destination:
-    namespace: my-app-ns
+    namespace: myapp-helm-ns
     server: https://kubernetes.default.svc
   source:
     #chart when you want to deploy helm from helm repo
@@ -19,5 +19,7 @@ spec:
     #   parameters:
     #   - name: "setvice.type"
     #     value: "loadBalancer"
-  sources: []
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
   project: default

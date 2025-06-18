@@ -1,25 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
-    app: my-app
-  name: my-app
+    app: myapp
+  name: myapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-app
+      app: myapp
   strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: my-app
+        app: myapp
     spec:
       containers:
       - image: aditu/myweb:latest
-        name: my-app
+        name: myapp
         ports:
         - containerPort: 8090
         resources: {}
