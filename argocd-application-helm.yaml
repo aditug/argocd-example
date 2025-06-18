@@ -12,5 +12,12 @@ spec:
     path: helm
     repoURL: https://github.com/aditug/argocd-example
     targetRevision: main
+  #  k explain applications.argoproj.io.spec.source.helm
+    # helm:
+    #   valueFiles: from-repo
+    #   - values-prod.yaml
+    #   parameters:
+    #   - name: "setvice.type"
+    #     value: "loadBalancer"
   sources: []
   project: default
